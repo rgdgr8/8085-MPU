@@ -1,0 +1,20 @@
+A = N
+B = A = N
+another copy of N
+A = X (X IS THE NUMBER TO BE COMPARED)
+C = A = X
+m/m ADDRESS VALUE
+
+
+
+
+
+
+NOT FOUND
+
+
+REQUIRED
+
+POSITION FROM START (2050H)
+
+

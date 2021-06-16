@@ -1,0 +1,35 @@
+A = MN
+D = A = MN
+A = KL
+HL = 0000H
+C = 04H is the counter for loop
+set carry flag 1
+complement carry flag to make it 0
+Rotate A left so that D7 comes to Carry flag and carry flag = 0 comes to D0
+E = A
+A = 00H
+A = Carry Flag
+H will store NK
+to check if C was 1 or not next
+
+Rotate A left so that next bit from KL can be put in D0 of NK
+restore C after testing
+H = A
+A = D
+Carry flag = 1
+complement carry flag to make it 0
+Rotate A left so that D7 comes to Carry flag and carry flag = 0 comes to D0
+D = A
+A = 00H
+A = Carry Flag
+L will store LM
+to check if C was 1 or not next
+
+Rotate A left so that next bit from MN can be put in D0 of LM
+L = A
+E = A
+
+
+
+
+

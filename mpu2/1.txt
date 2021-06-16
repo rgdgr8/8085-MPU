@@ -1,0 +1,35 @@
+LDA 2050H //A = MN
+MOV D,A //D = A = MN
+LDA 2051H //A = KL
+LXI H,0000H // HL = 0000H
+MVI C,04H //C = 04H is the counter for loop
+STC //set carry flag 1
+CMC //complement carry flag to make it 0
+LOOP: RAL //Rotate A left so that D7 comes to Carry flag and carry flag = 0 comes to D0
+MOV E,A //E = A
+MVI A,00H //A = 00H
+ADC A //A = Carry Flag
+ADD H //H will store NK
+DCR C //to check if C was 1 or not next
+JZ SKIP1
+RLC //Rotate A left so that next bit from KL can be put in D0 of NK
+SKIP1: INR C //restore C after testing 
+MOV H,A //H = A
+MOV A,D//A = D
+STC //Carry flag = 1
+CMC //complement carry flag to make it 0
+RAL //Rotate A left so that D7 comes to Carry flag and carry flag = 0 comes to D0
+MOV D,A //D = A
+MVI A,00H //A = 00H
+ADC A //A = Carry Flag
+ADD L //L will store LM
+DCR C //to check if C was 1 or not next
+JZ SKIP2
+RLC //Rotate A left so that next bit from MN can be put in D0 of LM
+MOV L,A //L = A
+MOV A,E //E = A
+JMP LOOP
+SKIP2: MOV L,A
+DAD D
+SHLD 2052H
+HLT
